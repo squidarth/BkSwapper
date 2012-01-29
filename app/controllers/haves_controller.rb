@@ -4,7 +4,8 @@ class HavesController < ApplicationController
  
  def create
  	@user = current_user
- 	@have = @user.haves.create(params[:have]) 
+ 	@have = @user.haves.create(params[:have])
+ 	@user.check_matches
  	respond_with @have, :location => root_path
   end
 

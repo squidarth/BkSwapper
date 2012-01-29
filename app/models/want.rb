@@ -5,14 +5,5 @@ class Want < ActiveRecord::Base
 	
 	
 	
-	def check_for_match
-		@have = Have.find_by_name(self.name)
-		@haver = @have.user
-		@wanter = self.user
-		if @have
-			@wanter.send_message
-			@haver.send_message
-		end
-	
-	end
+
 end

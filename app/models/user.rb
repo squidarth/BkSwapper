@@ -11,7 +11,41 @@ class User < ActiveRecord::Base
    has_many :haves, :class_name => "Have"
    has_many :wants
    
-   def send_message
+   def check_matches
+   	wants = self.wants
+   	haves = self.haves
+   	User.all.each do |user|
+		matched_wants = wants.collect{|want|want.name }&user.haves.collect{|have|have.name}
+		matched_haves = haves.collect{|have|have.name}&user.wants.collect{|want|want.name}
+   	
+   		if matched_wants.length > 0 && matched_haves.length > 0
+   			want = matched_wants[0]
+   			have = matched_haves[0]
+   			
+   			user.send_message("#{self.name} would like to trade #{have} for #{want}")
+   			self.send_message("#{user.name} would like to trade #{want} for #{have}")
+   		
+   		end
+   	end
+   
+   
+   end
+   
+   def send_message(message)
+      require 'twilio-ruby'
+      
+      account_sid = "AC990f18e5157c416d9a2695f5b392eac9"
+      auth_token = "90a3f5ef444416d12cad86f2191f0e95"
+      
+      @client = Twilio::REST::Client.new account_sid, auth_token
+      
+      @client.account.sms.messages.create(
+      	:from => "+14155992671",
+      	:to => self.phone,
+      	:body => message
+      )
+   
+   
    
    end
 end

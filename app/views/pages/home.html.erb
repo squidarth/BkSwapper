@@ -22,7 +22,7 @@
 	
 	</ul>
 	<%= form_for(Have.new, :url => haves_create_path, :html => {:remote => true}) do |f| %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, :class => "text"%>
 		<%= f.submit "Add Have!" %>	
 	
 	<% end %>
@@ -41,8 +41,16 @@
 		<% end %>
 	</ul>
 	<%= form_for(Want.new, :url => wants_create_path, :html => {:remote => true}) do |f| %>
-		<%= f.text_field :name %>
-		<%= f.submit "Add Have!" %>	
+		<%= f.text_field :name,:class => "text" %>
+		<%= f.submit "Add Want!" %>	
 	
 	<% end %>
 </div>
+
+
+<script type="text/javascript">
+	$("form").submit(function(){
+		$("#haves form input.text").attr("value", "");
+	});
+
+</script>
