@@ -14,6 +14,11 @@ h1, h2,h3,h4,h5{
 
 }
 
+#yield{
+	clear: both;
+
+}
+
 #wrapper{
 	width: 800px;
 	margin: auto;
@@ -23,9 +28,11 @@ h1, h2,h3,h4,h5{
 	text-align: center;
 	clear: both;
 	font-size: 2.3em;
+	color: #80000D;
 }
 #logo{
 	overflow: auto;
+	
 }
 
 #logo p{
@@ -36,7 +43,7 @@ h1, h2,h3,h4,h5{
 }
 
 .sign-up-button{
-	margin: 50px 0 0 10px;
+	margin: 50px 0 200px 10px;
 	text-align: center;
 	padding: 25px 0 25px;
 	overflow: auto;
@@ -44,7 +51,7 @@ h1, h2,h3,h4,h5{
 
 .sign-up-button a{
 	padding: 20px 20px 20px 20px;
-	margin: 0 10px 0 10px;
+	margin: 0 20px 0 20px;
 	background: #6495ED;
 	border-radius: 10px;
 	color: #fff;
@@ -58,9 +65,10 @@ h1, h2,h3,h4,h5{
 	width: 900px;
 	margin: auto;
 }
-
 #main-logo h1{
 	float: left;
+	color: #80000D;
+	margin: 0 0 0 0;
 }
 
 #welcome{
@@ -103,5 +111,58 @@ h1, h2,h3,h4,h5{
 
 #wants ul{
 	list-style: none;
+
+}
+
+#change-password-link{
+	margin: 0 0 0 100px;
+
+}
+
+
+/* Footer Styles */
+
+#footer{
+
+	clear: both;
+	width: 100%;
+	border-top: dashed 1px #aaa;
+
+}
+
+
+#footer ul{
+	list-style: none;
+	margin: 5px 0 0 0;
+	float: left;
+}
+
+#me a{
+	float: right;
+		font-weight: bold;
+	color: #777;
+	margin: 5px 0 0 0;
+
+}
+#footer ul li{
+	display: inline;
+	margin: 0 5px 0 0;
+
+}
+
+#footer ul li a{
+	font-weight: bold;
+	color: #777;
+
+
+}
+
+
+/* BOOTSTRAP OVERRIDING */
+
+
+.actions{
+	background: none;
+	border: none;
 
 }

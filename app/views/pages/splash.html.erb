@@ -18,9 +18,16 @@
 		</div>
 		
 		<div class="sign-up-button">
-			<%= link_to "Sign In", new_user_session_path %> Or <%= link_to "Sign up!", new_user_registration_path %>
+			<%= link_to "Sign In!", new_user_session_path %> <b>Or</b> <%= link_to "Sign up!", new_user_registration_path %>
 		</div>
-
+				<div id="footer">
+			<ul>
+				<li><%= link_to "About", about_path %></li>
+				<li><%= link_to "Contact", contact_path %></li>
+			
+			</ul>
+		
+		</div>
 	</div>
 
 

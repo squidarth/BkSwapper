@@ -10,8 +10,33 @@
 <body>
 
 	<div id="main-wrapper">
+		<div id="main-logo">
+			<% if user_signed_in? %>
+			<p id="welcome">Welcome, <%= current_user.name %>!
+			<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br />
+			Email: <b><%= current_user.email %></b><br />
+			Phone Number: <b><%= current_user.phone %></b>
+			</p>
+			<% end %>
+			<%= link_to root_path do %><h1>BkSwapper</h1><% end %>
+	
+		</div>
+		<div id="yield">
 		<%= yield %>
+		</div>
+	
+		<div id="footer">
+			<ul>
+				<li><%= link_to "About", about_path %></li>
+				<li><%= link_to "Contact", contact_path %></li>
+			</ul>
+			<p id="me"><%= link_to "A Sid Shanker Project", "http://about.me/SidShanker" %></p>
+		
+		</div>
+	
+	
 	</div>
+	
 
 </body>
 </html>

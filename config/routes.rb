@@ -1,4 +1,10 @@
 Bkswapper::Application.routes.draw do
+  get "passwords/edit"
+
+  get "passwords/update"
+
+  get "registrations/update"
+
   match "wants/create" => "wants#create", :via => [:post]
   match "wants/:id/destroy" => "wants#destroy", :via => [:delete], :as => :destroy_wants
 
@@ -8,13 +14,13 @@ Bkswapper::Application.routes.draw do
 
   get "users/show"
 
-  devise_for :users
-
+  devise_for :users, :controllers => {:registrations => "registrations", :passwords => "passwords"}
+  
   root :to => "pages#home"
 
-  get "pages/about"
+  get "pages/about", :as => :about
 
-  get "pages/contact"
+  get "pages/contact", :as => :contact
 
   get "pages/splash"
 

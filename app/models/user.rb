@@ -15,24 +15,32 @@ class User < ActiveRecord::Base
    	wants = self.wants
    	haves = self.haves
    	User.all.each do |user|
-		matched_wants = wants.collect{|want|want.name unless want.processed }&user.haves.collect{|have|have.name unless have.processed}
-		matched_haves = haves.collect{|have|have.name unless have.processed}&user.wants.collect{|want|want.name unless want.processed}
+		matched_wants = wants.collect{|want|want.name unless want.processed } & user.haves.collect{|have|have.name unless have.processed}
+		matched_haves = haves.collect{|have|have.name unless have.processed} & user.wants.collect{|want|want.name unless want.processed}
    	
    		if matched_wants.length > 0 && matched_haves.length > 0
    			want = matched_wants[0]
    			have = matched_haves[0]
    			new = Want.find_by_name_and_user_id(want, self.id)
-   			new.processed = true
-   			new.save!
+   			if new
+   				new.processed = true
+   				new.save!
+   			end
    			new = Have.find_by_name_and_user_id(have, self.id)
-   			new.processed = true
-   			new.save!
+   			if new
+   				new.processed = true
+   				new.save!
+   			end
    			new = Want.find_by_name_and_user_id(have, user.id)
+   			if new
    			new.processed = true
    			new.save!
+   			end
    			new = Have.find_by_name_and_user_id(want, user.id)
-   			new.processed = true
-   			new.save!
+   			if new
+   				new.processed = true
+   				new.save!
+   			end
    			user.send_message("#{self.name} would like to trade #{have} for #{want}")
    			self.send_message("#{user.name} would like to trade #{want} for #{have}")
    			
