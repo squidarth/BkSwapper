@@ -15,16 +15,27 @@ class User < ActiveRecord::Base
    	wants = self.wants
    	haves = self.haves
    	User.all.each do |user|
-		matched_wants = wants.collect{|want|want.name }&user.haves.collect{|have|have.name}
-		matched_haves = haves.collect{|have|have.name}&user.wants.collect{|want|want.name}
+		matched_wants = wants.collect{|want|want.name unless want.processed }&user.haves.collect{|have|have.name unless have.processed}
+		matched_haves = haves.collect{|have|have.name unless have.processed}&user.wants.collect{|want|want.name unless want.processed}
    	
    		if matched_wants.length > 0 && matched_haves.length > 0
    			want = matched_wants[0]
    			have = matched_haves[0]
-   			
+   			new = Want.find_by_name_and_user_id(want, self.id)
+   			new.processed = true
+   			new.save!
+   			new = Have.find_by_name_and_user_id(have, self.id)
+   			new.processed = true
+   			new.save!
+   			new = Want.find_by_name_and_user_id(have, user.id)
+   			new.processed = true
+   			new.save!
+   			new = Have.find_by_name_and_user_id(want, user.id)
+   			new.processed = true
+   			new.save!
    			user.send_message("#{self.name} would like to trade #{have} for #{want}")
    			self.send_message("#{user.name} would like to trade #{want} for #{have}")
-   		
+   			
    		end
    	end
    
@@ -32,7 +43,9 @@ class User < ActiveRecord::Base
    end
    
    def send_message(message)
+   	  require 'rubygems'
       require 'twilio-ruby'
+      puts "message sent"
       
       account_sid = "AC990f18e5157c416d9a2695f5b392eac9"
       auth_token = "90a3f5ef444416d12cad86f2191f0e95"

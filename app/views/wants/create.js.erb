@@ -1,1 +1,1 @@
-$("#wants ul").append("<li><%= @want.name %></li>");
+$("#wants ul").append('<li id="<%= @want.id %>"><%= @want.name %> <%= link_to "x", destroy_wants_path(@want), :method => :delete, :remote => true %></li>');

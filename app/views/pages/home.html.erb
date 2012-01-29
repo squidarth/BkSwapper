@@ -12,9 +12,9 @@
 	<h3>Haves</h3>
 	<ul>
 		<% @user.haves.each do |have| %>
-			<li>
+			<li id="<%= have.id %>">
 			
-				<%= have.name %>
+				<%= have.name %> <%= link_to "x", destroy_haves_path(have), :method => :delete, :remote => true %>
 			
 			</li>
 		
@@ -33,8 +33,8 @@
 	<h3>Wants</h3>
 	<ul>
 		<% @user.wants.each do |want| %>
-		<li>
-			<%= want.name %>
+		<li id="<%= want.id %>">
+			<%= want.name %> <%= link_to "x", destroy_wants_path(want), :method => :delete, :remote => true %>
 		
 		</li>
 		
@@ -49,8 +49,17 @@
 
 
 <script type="text/javascript">
-	$("form").submit(function(){
-		$("#haves form input.text").attr("value", "");
-	});
+	/*
+	$("ul li").mouseover(function(){
+		var child = $(this).children("a");
+		$(this).children("a").stop().fadeIn(function(){
+			$(this).parent("li").parent("ul").stop().mouseout(function(){
+				child.fadeOut();
+			});
+		
+		});
+	
+	});*/
+
 
 </script>

@@ -1,1 +1,1 @@
-$("#haves ul").append("<li><%= @have.name %></li>");
+$("#haves ul").append('<li id="<%= @have.id %>"><%= @have.name %> <%= link_to "x", destroy_haves_path(@have), :method => :delete, :remote => true %></li>');

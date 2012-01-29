@@ -80,8 +80,21 @@ h1, h2,h3,h4,h5{
 	float: left;
 }
 
+#haves ul li a{
+	color: #ff4040;
+	font-size: .8em;
+	font-weight: bold;
+
+}
+
 #wants{
 	float: right;
+}
+
+#wants ul li a{
+	color: #ff4040;
+	font-size: .8em;
+	font-weight: bold;
 }
 
 #haves ul{

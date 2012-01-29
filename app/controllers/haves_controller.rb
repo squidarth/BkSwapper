@@ -10,6 +10,9 @@ class HavesController < ApplicationController
   end
 
   def destroy
+  	@have = Have.find(params[:id])
+  	@have.destroy
+  	respond_with @have, :location => root_path
   end
 
 end

@@ -13,6 +13,10 @@ class WantsController < ApplicationController
   end
 
   def destroy
+  	@want = Want.find(params[:id])
+  	@want.destroy
+  	respond_with @want, :location => root_path
+  	
   end
 
 end

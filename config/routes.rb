@@ -1,10 +1,10 @@
 Bkswapper::Application.routes.draw do
   match "wants/create" => "wants#create", :via => [:post]
-  get "wants/destroy"
+  match "wants/:id/destroy" => "wants#destroy", :via => [:delete], :as => :destroy_wants
 
   match "haves/create" => "haves#create", :via => [:post]
 
-  get "haves/destroy"
+  match "haves/:id/destroy" => "haves#destroy", :via => [:delete], :as => :destroy_haves
 
   get "users/show"
 
