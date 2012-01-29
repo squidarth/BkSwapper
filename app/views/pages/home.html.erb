@@ -1,0 +1,48 @@
+<div id="main-logo">
+	<p id="welcome">Welcome, <%= @user.name %>!
+	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br />
+	Email: <b><%= @user.email %></b><br />
+	Phone Number: <b><%= @user.phone %></b>
+	</p>
+	<h1>Bkswapper</h1>
+	
+</div>
+
+<div id="haves">
+	<h3>Haves</h3>
+	<ul>
+		<% @user.haves.each do |have| %>
+			<li>
+			
+				<%= have.name %>
+			
+			</li>
+		
+		<% end %>
+	
+	</ul>
+	<%= form_for(Have.new, :url => haves_create_path, :html => {:remote => true}) do |f| %>
+		<%= f.text_field :name %>
+		<%= f.submit "Add Have!" %>	
+	
+	<% end %>
+</div>
+
+
+<div id="wants">
+	<h3>Wants</h3>
+	<ul>
+		<% @user.wants.each do |want| %>
+		<li>
+			<%= want.name %>
+		
+		</li>
+		
+		<% end %>
+	</ul>
+	<%= form_for(Want.new, :url => wants_create_path, :html => {:remote => true}) do |f| %>
+		<%= f.text_field :name %>
+		<%= f.submit "Add Have!" %>	
+	
+	<% end %>
+</div>

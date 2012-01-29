@@ -1,0 +1,94 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+
+}
+
+h1, h2,h3,h4,h5{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+
+}
+
+#wrapper{
+	width: 800px;
+	margin: auto;
+}
+
+#wrapper #logo h1{
+	text-align: center;
+	clear: both;
+	font-size: 2.3em;
+}
+#logo{
+	overflow: auto;
+}
+
+#logo p{
+	text-align: center;
+	width: 400px;
+	margin: 0 0 0 200px;
+
+}
+
+.sign-up-button{
+	margin: 50px 0 0 10px;
+	text-align: center;
+	padding: 25px 0 25px;
+	overflow: auto;
+}
+
+.sign-up-button a{
+	padding: 20px 20px 20px 20px;
+	margin: 0 10px 0 10px;
+	background: #6495ED;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+
+#main-wrapper{
+	width: 900px;
+	margin: auto;
+}
+
+#main-logo h1{
+	float: left;
+}
+
+#welcome{
+	float: right;
+}
+
+#welcome a{
+	color: #222;
+	text-decoration: none;
+	text-align: right;
+	font-weight: bold;
+
+}
+
+#haves{
+	clear: both;
+	float: left;
+}
+
+#wants{
+	float: right;
+}
+
+#haves ul{
+	list-style: none;
+}
+
+#wants ul{
+	list-style: none;
+
+}
