@@ -12,7 +12,7 @@ group :development do
 end
 gem 'devise'
 gem 'twilio-ruby'
-gem 'execjs'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,7 +22,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+	gem 'execjs'
 
+	gem 'therubyracer'
 
 group :production do 
 	gem 'pg'
