@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20120129054304) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "name"
   end
 
